@@ -4,6 +4,7 @@ import { GastoCard } from "./GastoCard";
 import { getAllGasto } from "../api/gasto.api";
 import { NavigationGasto } from "./NavigationGasto";
 import Container from "./Container";
+import { CSVLink } from "react-csv";
 
 export function GastoList(){
 
@@ -20,6 +21,9 @@ export function GastoList(){
     return <div>
             <NavigationGasto/>
             <Container>
+                <CSVLink data = {Gasto} filename="Gastos.csv"><button className="btn btn-success">Descargar Tabla</button></CSVLink>
+                <br></br>
+                <br></br>
                 <table className="table table-dark table-hover">
                     <thead>
                         <tr>

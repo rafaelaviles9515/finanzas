@@ -28,7 +28,7 @@ const YourComponent = () => {
           usuario: usuario,
         }
     });
-      setChartData2(response2.data);
+      setChartDatachart.js(response2.data);
       const response3 = await axios.get('http://localhost:8000/api/informe-meta/', {
         params: {
           year: year,

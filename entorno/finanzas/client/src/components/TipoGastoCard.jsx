@@ -1,5 +1,6 @@
 import {useNavigate} from 'react-router-dom'
 import Container from './Container';
+import {CSVLink} from 'react-csv';
 export function TipoGastoCard({tipo}){
     const navigate = useNavigate()
     return (
