@@ -11,8 +11,9 @@ import { TipoIngresoPage } from './pages/TipoIngresoPage';
 // import PrivateRoute from './components/PrivateRoute';
 import {Login} from './pages/FormPage';
 import { GastoFormPage } from './pages/GastoForm';
-import { ReporteMensualFormPage } from './pages/ReporteMensualForm';
+// import { ReporteMensualFormPage } from './pages/ReporteMensualForm';
 import YourComponent from './pages/ReporteForm';
+import RegisterForm from './pages/RegisterForm';
 function App(){
   return(
     <BrowserRouter>
@@ -32,6 +33,7 @@ function App(){
       {/* <Route path='/informe-mensual' element={<ReporteMensualFormPage/>} /> */}
       <Route path='/informe' element={<YourComponent/>} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<RegisterForm />} />
     </Routes>
       {/* <PrivateRoute path="/" element={<Navigate to="/tipogasto"/>} /> */}
     <Toaster/>
