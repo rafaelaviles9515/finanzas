@@ -1,4 +1,5 @@
 import  { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 // import GastoApi from '../api/gasto.api.js';
 
@@ -24,11 +25,20 @@ export const Login = () => {
         // const content = await response.json();
         const content = await response.json();
         console.log(content)
-        setRedirect(true);
+        if (response.ok) {
+            localStorage.setItem('token', content.jwt); // Guardar el token en el localStorage
+            toast.success('Loggeado')
+            setRedirect(true);
+            // Redirigir o actualizar estado según sea necesario
+          } else {
+            toast.error('Error')
+            // Manejar error de autenticación
+          }
+        
     };
 
     if (redirect) {
-        navigate('/gasto');  // Redirige al usuario a la página de login
+        navigate('/');  // Redirige al usuario a la página de login
     }
 
     return (

@@ -14,16 +14,25 @@ import { GastoFormPage } from './pages/GastoForm';
 // import { ReporteMensualFormPage } from './pages/ReporteMensualForm';
 import YourComponent from './pages/ReporteForm';
 import RegisterForm from './pages/RegisterForm';
+import { Home } from './pages/Home';
+
 function App(){
+  const getToken = () => localStorage.getItem('token');
+  const isAuthenticated = !!getToken();
+  // localStorage.removeItem('token');
   return(
     <BrowserRouter>
     <Navigation/>
     <Routes>
-      <Route path='/' element={<Navigate to="/tipogasto"/>} />
+      <Route path='/' element={<Home/>} />
       <Route path='/tipogasto' element={<TipoGastoPage/>} />
       <Route path='/tipogasto-create' element={<TipoGastoFormPage/>} />
       <Route path='/tipogasto/:id' element={<TipoGastoFormPage/>} />
-      <Route path='/gasto' element={<GastoPage/>} />
+      <Route
+          path="/gasto"
+          element={isAuthenticated ? <GastoPage /> : <Navigate to="/login" />}
+      />
+      {/* <Route path='/gasto' element={<GastoPage/>} /> */}
       <Route path='/gasto-create' element={<GastoFormPage/>} />
       <Route path='/gasto/:id' element={<GastoFormPage/>} />
       <Route path='/ingreso' element={<IngresoPage/>} />
